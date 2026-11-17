@@ -1,30 +1,21 @@
-const people = [
-  {name:'מרגי', quote:'הייתי בטוח שאמשיך להיות עם נועה עד שליזה האירה את עיני כמה היא גרועה. תודה ליזה!'},
-  {name:'נועם בתן', quote:'הגעתי בלי ביטחון לאירוויזיון אבל ברגע שליזה הודיעה לי שאהיה מקום ראשון או שני, ידעתי שאני מסוגל להצליח'},
-  {name:'אנה זק', quote:'בוא תראה מה פספסת נכתב על ליזה לכל האקסים שלה. ההצלחה שלי בזכותה'},
-  {name:'קיילי ג׳נר', quote:'התחלתי לתבוע בים'},
-  {name:'גורדון רמזי', quote:'נחתכתי ביד בזמן הכנות והתעלפתי כשראיתי דם. התעוררתי במיון כשליזה סחבה אותי כל הדרך'},
-  {name:'בילי אייליש', quote:'פחדתי להתלבש חשוף עד שראיתי שליזה יכולה והבנתי שגם אני. היא העלתה לי את הביטחון'},
-  {name:'שאקירה', quote:'פעם מישהי אמרה לי הירכיים שלי לא משקרות. המישהי הזאת היא ליזה'},
-  {name:'קארדי בי', quote:'פעם הייתי קארדי A ולא הצלחתי בעולם. אחרי הכרות עם ליזה זה היה כמו לידה מחדש ושם נוצרה קארדי B'},
-  {name:'ג׳סטין ביבר', quote:'מכרתי את כל הזכויות של השירים שלי בשביל שאני אקנה לליזה בשמים. זה עדיין לא הספיק, אבל העיקר שהיא מאושרת'},
-  {name:'עומר אדם', quote:'במקור נכתב ליזה איטס טה טיים אוף יור לייף, אבל היא הייתה בזוגיות והייתי חייב לשנות לבוקרשט'},
-  {name:'אודיה', quote:'כתבתי שיר שלם על ליזה, אבל לא מבינים מה אני אומר בכלל'},
-  {name:'מרגול', quote:'קניתי לליזה עץ ירוק מפלסטיק. זה לא הרשים את המלעונה הזאת'},
-  {name:'יסמין מועלם', quote:'עברתי לארה״ב ואז ללונדון. אבל בשניה שראיתי את ליזה עברתי לארץ בשביל להיות קרובה אליה'},
-  {name:'פיניאס', quote:'שכחתי כבר מי זאת איזבל ולא אכפת לי איפה פרי. כל יום בקיץ ארצה לבלות עם ליזה'},
-  {name:'קים פוסיבל', quote:'בפורים אני רוצה להתחפש לליזה'},
-  {name:'חוסטינה מירנדה גרסיה', quote:'שום מסע בזמן לא הכין אותי לנקודה שבה אסתכל לליזה על העיניים'}
-];
-const colors=[['#ff4f9a','#672db6'],['#ff8b3d','#d62d73'],['#52c5ff','#6557db'],['#47d7a3','#147a91'],['#f2bf43','#ee4d69'],['#bc73ff','#5b3fd5']];
-const initials = name => name.split(/\s+/).map(x=>x[0]).slice(0,2).join('');
-const hive=document.querySelector('#hive'), modal=document.querySelector('#modal'), portrait=document.querySelector('#portrait'), quote=document.querySelector('#quote'), modalName=document.querySelector('#modalName'), counter=document.querySelector('#counter');
-let current=0, touchX=0;
-people.forEach((p,i)=>{const b=document.createElement('button');const c=colors[i%colors.length];b.className='person';b.style.setProperty('--c1',c[0]);b.style.setProperty('--c2',c[1]);b.setAttribute('aria-label',`פתיחת הציטוט של ${p.name}`);b.innerHTML=`<span class="initials">${initials(p.name)}</span><span class="person-name">${p.name}</span>`;b.addEventListener('click',()=>open(i));hive.appendChild(b)});
-function render(){const p=people[current],c=colors[current%colors.length];portrait.style.setProperty('--c1',c[0]);portrait.style.setProperty('--c2',c[1]);portrait.textContent=initials(p.name);quote.textContent=p.quote;modalName.textContent=p.name;counter.textContent=`${current+1} / ${people.length}`}
-function open(i){current=i;render();modal.hidden=false;document.body.style.overflow='hidden';document.querySelector('.close').focus()}
-function close(){modal.hidden=true;document.body.style.overflow='';document.querySelectorAll('.person')[current].focus()}
-function move(step){current=(current+step+people.length)%people.length;render()}
-document.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click',close));document.querySelector('.next').addEventListener('click',()=>move(1));document.querySelector('.prev').addEventListener('click',()=>move(-1));
-document.addEventListener('keydown',e=>{if(modal.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')move(-1);if(e.key==='ArrowLeft')move(1)});
-modal.addEventListener('touchstart',e=>touchX=e.changedTouches[0].clientX,{passive:true});modal.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-touchX;if(Math.abs(d)>55)move(d>0?-1:1)},{passive:true});
+const people=[
+{name:'מרגי',image:'margi.jpg',source:'https://he.wikipedia.org/wiki/מרגי_(מוזיקאי)',quote:'הייתי בטוח שאמשיך להיות עם נועה עד שליזה האירה את עיני כמה היא גרועה. תודה ליזה!'},
+{name:'נועם בתן',image:'noam.jpg',source:'https://he.wikipedia.org/wiki/נועם_בתן',quote:'הגעתי בלי ביטחון לאירוויזיון אבל ברגע שליזה הודיעה לי שאהיה מקום ראשון או שני, ידעתי שאני מסוגל להצליח'},
+{name:'אנה זק',image:'anna.jpg',source:'https://he.wikipedia.org/wiki/אנה_זק',quote:'בוא תראה מה פספסת נכתב על ליזה לכל האקסים שלה. ההצלחה שלי בזכותה'},
+{name:'קיילי ג׳נר',image:'kylie.png',source:'https://en.wikipedia.org/wiki/Kylie_Jenner',quote:'התחלתי לתבוע בים'},
+{name:'גורדון רמזי',image:'gordon.jpg',source:'https://en.wikipedia.org/wiki/Gordon_Ramsay',quote:'נחתכתי ביד בזמן הכנות והתעלפתי כשראיתי דם. התעוררתי במיון כשליזה סחבה אותי כל הדרך'},
+{name:'בילי אייליש',image:'billie.jpg',source:'https://en.wikipedia.org/wiki/Billie_Eilish',quote:'פחדתי להתלבש חשוף עד שראיתי שליזה יכולה והבנתי שגם אני. היא העלתה לי את הביטחון'},
+{name:'שאקירה',image:'shakira.jpg',source:'https://en.wikipedia.org/wiki/Shakira',quote:'פעם מישהי אמרה לי הירכיים שלי לא משקרות. המישהי הזאת היא ליזה'},
+{name:'קארדי בי',image:'cardi.jpg',source:'https://en.wikipedia.org/wiki/Cardi_B',quote:'פעם הייתי קארדי A ולא הצלחתי בעולם. אחרי הכרות עם ליזה זה היה כמו לידה מחדש ושם נוצרה קארדי B'},
+{name:'ג׳סטין ביבר',image:'justin.jpg',source:'https://en.wikipedia.org/wiki/Justin_Bieber',quote:'מכרתי את כל הזכויות של השירים שלי בשביל שאני אקנה לליזה בשמים. זה עדיין לא הספיק, אבל העיקר שהיא מאושרת'},
+{name:'עומר אדם',image:'omer.jpg',source:'https://he.wikipedia.org/wiki/עומר_אדם',quote:'במקור נכתב ליזה איטס טה טיים אוף יור לייף, אבל היא הייתה בזוגיות והייתי חייב לשנות לבוקרשט'},
+{name:'אודיה',image:'odaya.jpg',source:'https://he.wikipedia.org/wiki/אודיה',quote:'כתבתי שיר שלם על ליזה, אבל לא מבינים מה אני אומרת בכלל'},
+{name:'מרגול',image:'margol.jpg',source:'https://he.wikipedia.org/wiki/מרגלית_צנעני',quote:'קניתי לליזה עץ ירוק מפלסטיק. זה לא הרשים את המלעונה הזאת'},
+{name:'יסמין מועלם',image:'yasmin.jpg',source:'https://he.wikipedia.org/wiki/יסמין_מועלם',quote:'עברתי לארה״ב ואז ללונדון. אבל בשניה שראיתי את ליזה עברתי לארץ בשביל להיות קרובה אליה'},
+{name:'פיניאס',image:'phineas.png',source:'https://disney.fandom.com/wiki/Phineas_Flynn',quote:'שכחתי כבר מי זאת איזבל ולא אכפת לי איפה פרי. כל יום בקיץ ארצה לבלות עם ליזה'},
+{name:'קים פוסיבל',image:'kim.jpg',source:'https://shows.disney.com/kim-possible',quote:'בפורים אני רוצה להתחפש לליזה'},
+{name:'חוסטינה מירנדה גרסיה',image:'justina.jpg',source:'https://www.imdb.com/title/tt1151030/characters/nm1497784/',quote:'שום מסע בזמן לא הכין אותי לנקודה שבה אסתכל לליזה על העיניים'}];
+const hive=document.querySelector('#hive'),modal=document.querySelector('#modal'),portrait=document.querySelector('#portrait'),quote=document.querySelector('#quote'),modalName=document.querySelector('#modalName'),counter=document.querySelector('#counter'),sourceLink=document.querySelector('#sourceLink');let current=0,touchX=0;
+people.forEach((p,i)=>{const b=document.createElement('button');b.className='person';b.setAttribute('aria-label',`פתיחת הציטוט של ${p.name}`);b.innerHTML=`<img src="assets/people/${p.image}" alt="" loading="lazy"><span class="person-name">${p.name}</span>`;b.addEventListener('click',()=>open(i));hive.appendChild(b)});
+function render(){const p=people[current];portrait.style.backgroundImage=`url("assets/people/${p.image}")`;quote.textContent=p.quote;modalName.textContent=p.name;counter.textContent=`${current+1} / ${people.length}`;sourceLink.href=p.source}function open(i){current=i;render();modal.hidden=false;document.body.style.overflow='hidden';document.querySelector('.close').focus()}function close(){modal.hidden=true;document.body.style.overflow='';document.querySelectorAll('.person')[current].focus()}function move(step){current=(current+step+people.length)%people.length;render()}
+document.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click',close));document.querySelector('.next').addEventListener('click',()=>move(1));document.querySelector('.prev').addEventListener('click',()=>move(-1));document.addEventListener('keydown',e=>{if(modal.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')move(-1);if(e.key==='ArrowLeft')move(1)});modal.addEventListener('touchstart',e=>touchX=e.changedTouches[0].clientX,{passive:true});modal.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-touchX;if(Math.abs(d)>55)move(d>0?-1:1)},{passive:true});
