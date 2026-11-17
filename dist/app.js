@@ -41,7 +41,7 @@ const people=[
 {name:'רונאלד מקדונלדס',image:'ronald.jpg',position:'50% 24%',source:'https://www.imdb.com/title/tt6961982/mediaviewer/rm118086657/',quote:'היא גמרה לנו את כל הפאי תפוחים'},
 {name:'דוקטור ריבה',image:'dr-riva.png',position:'50% 32%',source:'https://www.ynet.co.il/economy/article/r14h5v00ogx',quote:'לקוחה מושלמת שמקשיבה לכל ההוראות בצורה מדויקת'},
 {name:'פאקו רבאן',image:'paco.jpg',position:'50% 42%',source:'https://fashion.rabanne.com/en-gb/pages/monsieur-paco-rabanne',quote:'החזרנו את המלאי של הבלאק xs לכבודה'},
-{name:'יקיר בר זוהר',image:'yakir.jpg',position:'50% 30%',source:'https://www.mako.co.il/culture-articles/Article-85809b2cdf85a91027.htm',quote:'חשבתי לשנות את השם מחסס אל חיה אל חסס אל ליזה'},
+{name:'יקיר בר זוהר',image:'yakir-new.webp',position:'50% 35%',source:'https://www.hamashpianim.co.il/influencer/yakir-bar-zohar',quote:'חשבתי לשנות את השם מחסס אל חיה אל חסס אל ליזה'},
 {name:'סברינה קרפנטר',image:'sabrina.jpg',position:'50% 28%',source:'https://en.wikipedia.org/wiki/Sabrina_Carpenter',quote:'לפגוש את ליזה זה כמו שוט של אספרסו'},
 {name:'מנכ״ל אינווידיה',image:'jensen.jpg',position:'50% 28%',source:'https://en.wikipedia.org/wiki/Jensen_Huang',quote:'ניסיתי שתהיה לי אישה רביעית, ליזה לא זרמה איתי..'}];
 const hive=document.querySelector('#hive'),modal=document.querySelector('#modal'),portrait=document.querySelector('#portrait'),quote=document.querySelector('#quote'),modalName=document.querySelector('#modalName'),counter=document.querySelector('#counter'),sourceLink=document.querySelector('#sourceLink');let current=0,touchX=0;
