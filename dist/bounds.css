@@ -1,0 +1,10 @@
+.hive-guide{
+  z-index:1000;
+  color:#f1eaf8;
+  background:#100d18f2;
+  border-color:#ffffff2b;
+  backdrop-filter:blur(12px);
+  box-shadow:0 6px 22px #0009;
+}
+.hive-guide small{color:#aaa0b9}
+.zoom-controls{z-index:1000}
