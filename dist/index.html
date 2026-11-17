@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11101a">
+  <meta name="description" content="מפורסמים מדברים על ליזה">
+  <title>מפורסמים מדברים על ליזה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">כולם כבר יודעים</p>
+      <h1>מפורסמים<br><span>מדברים על ליזה</span></h1>
+      <p class="lead">לחצו על דמות וגלו מה יש לה לומר</p>
+      <div class="hint" aria-hidden="true"><span>↓</span></div>
+    </header>
+    <section class="hive-wrap" aria-label="רשימת המפורסמים">
+      <div id="hive" class="hive"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName" hidden>
+    <div class="backdrop" data-close></div>
+    <div class="card">
+      <button class="close" type="button" aria-label="סגירה" data-close>×</button>
+      <button class="nav prev" type="button" aria-label="לדמות הקודמת">‹</button>
+      <article class="content">
+        <div id="portrait" class="portrait" aria-hidden="true"></div>
+        <div class="quote-mark">״</div>
+        <blockquote id="quote"></blockquote>
+        <h2 id="modalName"></h2>
+        <div id="counter" class="counter"></div>
+      </article>
+      <button class="nav next" type="button" aria-label="לדמות הבאה">›</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
