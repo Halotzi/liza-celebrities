@@ -1,0 +1,28 @@
+.person{
+  transition:filter .25s;
+  animation:floatOdd var(--duration,6s) ease-in-out var(--delay,0s) infinite;
+}
+.person:nth-child(even){animation-name:floatEven}
+.person:hover,.person:focus-visible{
+  filter:saturate(1.2) brightness(1.08);
+  animation-play-state:paused;
+}
+.person:active{filter:saturate(1.35) brightness(1.15)}
+@keyframes floatOdd{
+  0%,100%{transform:translate(0,0) rotate(-1deg)}
+  35%{transform:translate(4px,-7px) rotate(1.3deg)}
+  68%{transform:translate(-4px,4px) rotate(-.5deg)}
+}
+@keyframes floatEven{
+  0%,100%{transform:translate(0,50px) rotate(1deg)}
+  35%{transform:translate(-4px,43px) rotate(-1deg)}
+  68%{transform:translate(4px,54px) rotate(.7deg)}
+}
+@media(max-width:760px){
+  @keyframes floatEven{
+    0%,100%{transform:translate(0,40px) rotate(1deg)}
+    35%{transform:translate(-3px,34px) rotate(-1deg)}
+    68%{transform:translate(3px,44px) rotate(.7deg)}
+  }
+}
+@media(prefers-reduced-motion:reduce){.person{animation:none!important}}
