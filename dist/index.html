@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="interactive.css">
 </head>
 <body>
   <main>
@@ -20,8 +21,14 @@
       <p class="lead">לחצו על דמות וגלו מה יש לה לומר</p>
       <div class="hint" aria-hidden="true"><span>↓</span></div>
     </header>
-    <section class="hive-wrap" aria-label="רשימת המפורסמים">
+    <section id="hiveViewport" class="hive-wrap" aria-label="כוורת מפורסמים אינטראקטיבית">
+      <div class="hive-guide"><span>גררו כדי לטייל בכוורת</span><small>צביטה או גלגלת לשינוי גודל</small></div>
       <div id="hive" class="hive"></div>
+      <div class="zoom-controls" aria-label="בקרת גודל">
+        <button id="zoomIn" type="button" aria-label="הגדלה">+</button>
+        <button id="resetView" type="button" aria-label="מרכוז הכוורת">◎</button>
+        <button id="zoomOut" type="button" aria-label="הקטנה">−</button>
+      </div>
     </section>
   </main>
 
