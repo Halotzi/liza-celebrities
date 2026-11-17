@@ -8,3 +8,6 @@
 }
 .hive-guide small{color:#aaa0b9}
 .zoom-controls{z-index:1000}
+.modal{z-index:99999!important}
+.modal .backdrop{z-index:0}
+.modal .card{z-index:1}
